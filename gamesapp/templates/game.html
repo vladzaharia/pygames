@@ -1,0 +1,97 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+Game Tracking - {{ game.name }}
+{% endblock %}
+
+{% block content %}
+	<div class="title">
+		<div class="title-left">
+			<h1>{{ game.name }}</h1>
+		</div>
+
+		<div class="title-right title-{{ game.game_type }} title-{{ game.platform }}">
+			{% if has_platform %}
+				{{ game.platform|add:" Game" }}
+			{% else %}
+				{{ game.game_type|add:" Game" }}
+			{% endif %}
+		</div>
+	</div>
+
+	{{ game.description|linebreaks }}
+
+	<div class="properties">
+		<div class="property players">
+			<div class="icon">
+				<span class="glyphicon glyphicon-user"></span>
+			</div>
+
+			<div class="text">
+				{% if player_same %}
+					<td>{{ game.min_players }}</td>
+				{% else %} 
+					<td>{{ game.min_players }} - {{ game.max_players }}</td>
+				{% endif %}
+			</div>
+		</div>
+
+		<div class="property time">
+			<div class="icon">
+				<span class="glyphicon glyphicon-time"></span>
+			</div>
+
+			<div class="text">
+			{% if game.playing_time %}
+				{{ game.playing_time }} min
+			{% else %}
+				N/A
+			{% endif %}
+			</div>
+		</div>
+
+		<div class="property likes {% if likes %}property-popover{% endif %}" 
+			data-title="Likes"
+			data-content="{% for person in likes %} {{ person.user.first_name }}<br />{% endfor %}">
+			<div class="icon">
+				<span class="glyphicon glyphicon-thumbs-up"></span>
+			</div>
+
+			<div class="text">
+				{{ likes|length }}
+			</div>
+		</div>
+
+		<div class="property dislikes {% if dislikes %}property-popover{% endif %}" 
+			data-title="Dislikes"
+			data-content="{% for person in dislikes %} {{ person.user.first_name }}<br />{% endfor %}">
+			<div class="icon">
+				<span class="glyphicon glyphicon-thumbs-down"></span>
+			</div>
+
+			<div class="text">
+				{{ dislikes|length }}
+			</div>
+		</div>
+
+		<div class="property owner {% if owners %}property-popover{% endif %}" 
+			data-title="Owners"
+			data-content="{% for person in owners %} {{ person.owner.first_name }} - {{ person.get_id }}<br />{% endfor %}">
+			<div class="icon">
+				<span class="glyphicon glyphicon-inbox"></span>
+			</div>
+
+			<div class="text">
+				{{ owners|length }}
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block customjs %}
+	<script type="text/javascript">
+		$(function() {
+			$(".property-popover").popover({ 'trigger' : 'hover', 'placement': 'top', 'html': true });
+		});
+	</script>
+{% endblock %}

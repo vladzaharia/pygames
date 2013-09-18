@@ -1,0 +1,36 @@
+{% load bootstrap3 %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% bootstrap_css %}
+    <link rel="stylesheet" type="text/css" href="{% static "site.css" %} ">
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.js"></script>
+    {% bootstrap_javascript %}
+    {% block customjs %}{% endblock %}
+    <title>{% block title %}Game Tracking{% endblock %}</title>
+</head>
+
+<body>
+    {%block header %}
+        <a class="home-button" href="{% url 'index' %}">
+            <span class="glyphicon glyphicon-home"></span>
+            Home
+        </a>
+
+        <div class="header">
+            <div class="container">
+                <h1>Game Tracking</h1>
+                <p>
+                    A list of all games owned by people available for sharing.
+                </p>
+            </div>
+        </div>
+    {% endblock %}
+
+    <div class="container body-container">
+        {% block content %}{% endblock %}
+    </div>  
+</body>
+</html>

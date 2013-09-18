@@ -1,0 +1,160 @@
+.header {
+	padding: 30px 15px 40px;
+	margin-bottom: 50px;
+	font-size: 21px;
+	text-align: left;
+	text-shadow: 0 1px 0 rgba(0,0,0,.15);
+	color: #C0CDE6;
+	background-color: #1748A2;
+}
+
+.header.notfinal {
+	margin-bottom: 0;
+}
+
+.subheader {
+	height: 40px;
+	margin-bottom: 50px;
+	background-color: #1748A2;
+	color: #C0CDE6;
+}
+
+.subheader .container {
+	background-color: #154193;
+	height: 100%;
+	text-align: center;
+}
+
+.subheader .filter-menu {
+	height: 100%;
+}
+
+.subheader a {
+	background-color: #154193;
+	color: #ffffff;
+	height: 100%;
+	display: inline-block;
+	padding: 10px 40px;
+	margin-left: -5px;
+}
+
+.subheader a.X360 {
+	background-color: #007E00;
+}
+
+.subheader a.PS3 {
+	background-color: #0068C7;
+}
+
+.subheader a.Wii {
+	background-color: #0197cb;
+}
+
+.subheader a.GC {
+	background-color: #5c5997;
+}
+
+.subheader a:hover,
+.subheader a:active {
+	color: #C0CDE6;
+	text-decoration: none;
+}
+
+.header h1 {
+	font-size: 60px;
+	line-height: 1;
+	color: #ffffff;
+}
+
+.title {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	height: 75px;
+}
+
+.title-left, .title-right {
+	display: block;
+	position: absolute;
+}
+
+.title-right {
+	right: 0;
+	top: 30%;
+	font-size: 25px;
+	color: #4a4a4a;
+}
+
+.title-X360 {
+	color: #007E00;
+}
+
+.title-PS3 {
+	color: #0068C7;
+}
+
+.title-Wii {
+	color: #0197cb;
+}
+
+.title-GC {
+	color: #5c5997;
+}
+
+.properties {
+	position: relative;
+	margin-top: 30px;
+}
+
+.property {
+	background-color: #428bca;
+	border: 1px solid #357ebd;
+	color: #ffffff;
+	height: 100px;
+	width: 100px;
+	text-align: center;
+	position: relative;
+	border-radius: 10px;
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.property .icon {
+	top: 10px;
+	font-size: 45px;
+}
+
+.property .text {
+	font-size: 20px;
+}
+
+.property.likes {
+	background-color: #5cb85c;
+	border-color: #4cae4c;
+}
+
+.property.dislikes {
+	background-color: #d9534f;
+	border-color: #d43f3a;
+}
+
+.home-button {
+	color: #ffffff;
+	background-color: #154193;
+	font-size: 20px;
+	width: 110px;
+	height: 50px;
+	position: absolute;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+.home-button:hover,
+.home-button:active {
+	color: #C0CDE6;
+	text-decoration: none;
+}
+
+.body-container {
+	padding-bottom: 50px;
+}
