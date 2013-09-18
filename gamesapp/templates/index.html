@@ -38,6 +38,7 @@
 	    	<th>Game Name</th>
 	    	<th>Game Type</th>
 	    	<th>Platform</th>
+	    	<th># Players</th>
 	    </tr>
 
 	    {% for game in game_list %}
@@ -45,6 +46,7 @@
 		    <td><a href="{% url 'detail' game.id %}">{{ game.name }}</a></td>
 		    <td>{{ game.game_type }}</td>
 		    <td>{{ game.platform }}</td>
+		    <td>{{ game.min_players }} - {{ game.max_players }}</td>
 		</tr>
 	    {% endfor %}
 
