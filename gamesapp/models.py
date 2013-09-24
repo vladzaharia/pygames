@@ -19,7 +19,7 @@ class Game(models.Model):
 
 	name = models.CharField(max_length=50, verbose_name=u'Name')
 	game_type = models.CharField(max_length=10, choices=TYPE_CHOICES, verbose_name=u'Game Type')
-	platform = models.CharField(max_length=10, choices=PLATFORM_CHOICES, default='None', verbose_name=u'Console Platform')
+	platform = models.CharField(max_length=10, choices=PLATFORM_CHOICES, default='None', verbose_name=u'Platform')
 	description = models.TextField()
 	min_players = models.IntegerField(verbose_name=u'Min. Players')
 	max_players = models.IntegerField(verbose_name=u'Max. Players')

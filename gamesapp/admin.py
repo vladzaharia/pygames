@@ -11,13 +11,14 @@ class PreferenceInLine(admin.TabularInline):
 
 class GameAdmin(admin.ModelAdmin):
     fieldsets = [
-        ('Game Information',    {'fields': ['name', 'game_type', 'platform', 'description']}),
-        ('Playing Information', {'fields': ['min_players', 'max_players', 'playing_time']}),
+        ('Game Information',    {'fields': ['name', ('game_type', 'platform'), 'description']}),
+        ('Playing Information', {'fields': [('min_players', 'max_players'), 'playing_time']}),
     ]
     inlines = [OwnerInline, PreferenceInLine]
     list_display = ('name', 'game_type', 'platform')
     list_filter = ['game_type', 'platform']
     search_fields = ['name']
+    ordering = ['name']
 
 # Register Admin Information
 admin.site.register(Game, GameAdmin)
