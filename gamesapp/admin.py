@@ -29,6 +29,8 @@ class GameCopyAdmin(admin.ModelAdmin):
     list_display = ('game', 'owner', 'get_id')
     ordering = ['game']
     readonly_fields = ['tracking_id']
+    search_fields = ['game']
+    list_filter = ['status', 'condition']
 
 # Register Admin Information
 admin.site.register(Game, GameAdmin)
