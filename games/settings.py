@@ -128,6 +128,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'bootstrap3',
     'jquery',
+    'south',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'

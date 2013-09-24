@@ -29,11 +29,29 @@ class Game(models.Model):
 	def __str__(self):
 		return self.name
 
+	class Meta:
+		verbose_name = 'Game'
+		verbose_name_plural = 'Games'
+
 # A Physical Game copy
 class GameCopy(models.Model):
+	STATUS_CHOICES = (
+		('Have', 'Available'),
+		('Lent', 'Lent Out'),
+		('Sold', 'Copy Sold'),
+		('Lost', 'Copy Lost'))
+
+	CONDITION_CHOICES = (
+		('OK', 'OK'),
+		('PC_Mss', 'Piece Missing'),
+		('GM_Mss', 'Game Missing'))
+
 	game = models.ForeignKey(Game)
 	owner = models.ForeignKey(User)
 	tracking_id = UUIDField()
+	status = models.CharField(max_length=10, choices=STATUS_CHOICES, verbose_name=u'Copy Status', default='Have')
+	condition = models.CharField(max_length=10, choices=CONDITION_CHOICES, verbose_name=u'Copy Condition', default='OK')
+	description = models.TextField(verbose_name=u'Copy Description', blank=True, null=True)
 
 	def __str__(self):
 		return self.game.name + " owned by " + self.owner.username + " (Tracking ID " + self.tracking_id[:8].upper() + ")"
