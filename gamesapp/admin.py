@@ -15,6 +15,7 @@ class GameAdmin(admin.ModelAdmin):
         ('Playing Information', {'fields': ['min_players', 'max_players', 'playing_time']}),
     ]
     inlines = [OwnerInline, PreferenceInLine]
+    list_display = ('name', 'game_type', 'platform')
 
 # Register Admin Information
 admin.site.register(Game, GameAdmin)
