@@ -27,7 +27,6 @@
 
 .subheader .filter-menu {
 	height: 100%;
-	display: block;
 }
 
 .subheader a {
@@ -41,22 +40,18 @@
 
 .subheader a.X360 {
 	background-color: #007E00;
-	display: inline-block;
 }
 
 .subheader a.PS3 {
 	background-color: #0068C7;
-	display: inline-block;
 }
 
 .subheader a.Wii {
 	background-color: #0197cb;
-	display: inline-block;
 }
 
 .subheader a.GC {
 	background-color: #5c5997;
-	display: inline-block;
 }
 
 .subheader a:hover,
@@ -166,7 +161,7 @@
 
 @media only screen and (max-width: 600px) {
 	.filter-menu {
-		display:none;
+		display: none;
 	}
 }
 
@@ -182,12 +177,22 @@
 	}
 }
 
+@media only screen and (min-width: 1201px) {
+	.item.X360, .item.PS3, .item.Wii, .item.GC {
+		display: inline-block;
+	}
+
+	.filter-menu {
+		display: block;
+	}
+}
+
 @media screen and (device-aspect-ratio: 16/9) {
 	.header {
 		height: 250px;
 	}
 
 	.header .container {
-		margin-top: 65px;
+		margin-top: 45px;
 	}
 }
