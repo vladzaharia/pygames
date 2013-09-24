@@ -36,7 +36,7 @@ class TrackView(generic.DetailView):
 
 	def get_object(self):
 		queryset = self.get_queryset()
-		tracking_id = self.kwargs['tracking']
+		tracking_id = self.kwargs['tracking'].lower()
 		filtered_set = queryset.filter(tracking_id__startswith=tracking_id)
 
 		if (filtered_set.count() == 0):
