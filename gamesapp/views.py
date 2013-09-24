@@ -49,7 +49,7 @@ class TrackView(generic.DetailView):
 
 	def get_context_data(self, **kwargs):
 		# Call the base implementation first to get a context
-		context = super(DetailView, self).get_context_data(**kwargs)
+		context = super(TrackView, self).get_context_data(**kwargs)
 		# Add in a Likes/Dislikes/Owners
 		game = self.get_object()
 
