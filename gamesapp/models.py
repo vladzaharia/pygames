@@ -13,7 +13,7 @@ class Game(models.Model):
 		('X360', 'Xbox 360'),
 		('Wii', 'Wii'),
 		('GC', 'GameCube'),
-		('NDS', 'Nintendo DS/3DS'),
+		('NDS', 'Nintendo 3DS'),
 		('PSV', 'Playstation Vita'),
 		('None', 'None'))
 
