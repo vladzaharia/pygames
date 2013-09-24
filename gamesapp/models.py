@@ -54,7 +54,7 @@ class GameCopy(models.Model):
 	description = models.TextField(verbose_name=u'Copy Description', blank=True, null=True)
 
 	def __str__(self):
-		return self.game.name + " owned by " + self.owner.username + " (Tracking ID " + self.tracking_id[:8].upper() + ")"
+		return self.tracking_id[:8].upper() + " owned by " + self.owner.first_name + " " + self.owner.last_name + " (Status " + self.get_status_display() + " / Condition " + self.get_condition_display()  + ")"
 	def get_id(self):
 		return self.tracking_id[:8].upper()
 
