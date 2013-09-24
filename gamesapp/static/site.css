@@ -158,3 +158,27 @@
 .body-container {
 	padding-bottom: 50px;
 }
+
+@media only screen and (max-width: 400px) {
+	.filter-menu {
+		display:none;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.item.X360, .item.PS3 {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 1200px) {
+	.item.Wii, .item.GC {
+		display: none;
+	}
+}
+
+@media screen and (device-aspect-ratio: 16/9), screen and (device-aspect-ratio: 16/10) {
+	.header {
+		height: 300px;
+	}
+}
