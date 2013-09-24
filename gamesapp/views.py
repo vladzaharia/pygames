@@ -11,7 +11,7 @@ class IndexView(generic.ListView):
 
 	def get_queryset(self):
 		"""Return all games."""
-		return Game.objects.all()
+		return Game.objects.all().order_by('name')
 
 class DetailView(generic.DetailView):
 	template_name = 'game.html'
@@ -67,7 +67,7 @@ class TypeFilterView(generic.ListView):
 
 	def get_queryset(self):
 		"""Return all games."""
-		return Game.objects.filter(game_type=self.kwargs['game_type'])
+		return Game.objects.filter(game_type=self.kwargs['game_type']).order_by('name')
 
 class PlatformFilterView(generic.ListView):
 	template_name = 'index.html'
@@ -76,4 +76,4 @@ class PlatformFilterView(generic.ListView):
 
 	def get_queryset(self):
 		"""Return all games."""
-		return Game.objects.filter(platform=self.kwargs['platform'])
+		return Game.objects.filter(platform=self.kwargs['platform']).order_by('name')
