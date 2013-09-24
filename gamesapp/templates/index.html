@@ -45,7 +45,7 @@
 	    <tr>
 		    <td><a href="{% url 'detail' game.id %}">{{ game.name }}</a></td>
 		    <td>{{ game.game_type }}</td>
-		    <td>{{ game.platform }}</td>
+		    <td>{{ game.get_platform_display }}</td>
 		    <td>{{ game.min_players }} - {{ game.max_players }}</td>
 		</tr>
 	    {% endfor %}

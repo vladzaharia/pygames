@@ -12,7 +12,7 @@ Game Tracking - {{ game.name }}
 
 		<div class="title-right title-{{ game.game_type }} title-{{ game.platform }}">
 			{% if has_platform %}
-				{{ game.platform|add:" Game" }}
+				{{ game.get_platform_display|add:" Game" }}
 			{% else %}
 				{{ game.game_type|add:" Game" }}
 			{% endif %}
