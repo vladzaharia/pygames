@@ -9,11 +9,12 @@ class Game(models.Model):
 		('Card', 'Card Game'),
 		('Console', 'Console Game'))
 	PLATFORM_CHOICES = (
-		('PS3', 'PS3'),
+		('PS3', 'Playstation 3'),
 		('X360', 'Xbox 360'),
 		('Wii', 'Wii'),
 		('GC', 'GameCube'),
 		('NDS', 'Nintendo DS/3DS'),
+		('PSV', 'Playstation Vita'),
 		('None', 'None'))
 
 	name = models.CharField(max_length=50, verbose_name=u'Name')
