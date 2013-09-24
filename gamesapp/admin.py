@@ -16,6 +16,8 @@ class GameAdmin(admin.ModelAdmin):
     ]
     inlines = [OwnerInline, PreferenceInLine]
     list_display = ('name', 'game_type', 'platform')
+    list_filter = ['game_type', 'platform']
+    search_fields = ['name']
 
 # Register Admin Information
 admin.site.register(Game, GameAdmin)
