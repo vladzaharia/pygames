@@ -1,8 +1,8 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404
 from django.template import RequestContext, loader
 from django.views import generic
-from gamesapp.models import Game
+from gamesapp.models import Game, GameCopy
 
 class IndexView(generic.ListView):
 	template_name = 'index.html'
@@ -29,6 +29,23 @@ class DetailView(generic.DetailView):
 		context['dislikes'] = game.gamepreference_set.filter(preference='Dislike')
 		context['owners'] = list(game.gamecopy_set.all())
 		return context
+
+class TrackView(generic.DetailView):
+	template_name = 'track.html'
+	model = Game
+
+	def get_object(self):
+		queryset = self.get_queryset()
+		tracking_id = self.kwargs['tracking']
+		filtered_set = queryset.filter(tracking_id__startswith=tracking_id)
+
+		if (filtered_set.count() == 0):
+			raise Http404
+
+		return filtered_set[0].game
+
+	def get_queryset(self):
+		return GameCopy.objects.all()
 
 class TypeFilterView(generic.ListView):
 	template_name = 'index.html'
