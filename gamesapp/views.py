@@ -47,6 +47,19 @@ class TrackView(generic.DetailView):
 	def get_queryset(self):
 		return GameCopy.objects.all()
 
+	def get_context_data(self, **kwargs):
+		# Call the base implementation first to get a context
+		context = super(DetailView, self).get_context_data(**kwargs)
+		# Add in a Likes/Dislikes/Owners
+		game = self.get_object()
+
+		context['player_same'] = game.min_players == game.max_players
+		context['has_platform'] = game.game_type == 'Console'
+		context['likes'] = game.gamepreference_set.filter(preference='Like')
+		context['dislikes'] = game.gamepreference_set.filter(preference='Dislike')
+		context['owners'] = list(game.gamecopy_set.all())
+		return context
+
 class TypeFilterView(generic.ListView):
 	template_name = 'index.html'
 	context_object_name = 'game_list'
