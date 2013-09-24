@@ -163,6 +163,11 @@
 	.filter-menu {
 		display: none;
 	}
+
+	.resp-table td:nth-child(4),
+	.resp-table th:nth-child(4) {
+		display: none;
+	}
 }
 
 @media only screen and (max-width: 800px) {
